@@ -1,0 +1,58 @@
+/*package whatever //do not write package name here */
+
+import java.io.*;
+import java.util.* ;
+class GFG {
+    static boolean rowand(int arr[]) 
+    {
+        for(int i=0;i<arr.length;i++)
+        {
+            if(arr[i] == 1) 
+            {
+                return true ;
+            }
+        }
+        return false  ;
+    }
+    static boolean coland(int arr[][],int n) 
+    {
+        for(int i=0;i<arr.length;i++)
+        {
+            if(arr[i][n] == 1) 
+            {
+                return true ;
+            }
+        }
+        return false  ;
+    }
+	public static void main (String[] args) {
+	    Scanner input = new Scanner (System.in);
+	    int t = input.nextInt();
+	    while(t!=0){
+	    int m = input.nextInt();
+	    int n = input.nextInt();
+	    int boolmatrix [] [] = new int [m] [n] ;
+	    for(int i=0;i<m;i++)
+	    {
+	        for(int j=0;j<n;j++)
+	        {
+	            boolmatrix[i][j] = input.nextInt();
+	        }
+	    }
+	    for(int i=0;i<m;i++)
+	    {
+	        for(int j=0;j<n;j++)
+	        {
+	            if(rowand(boolmatrix[i])||coland(boolmatrix,j))
+	            {
+	                System.out.print("1 ");
+	            }
+	            else System.out.print("0 ");
+	        }
+	        System.out.println();
+	    }
+	    System.out.println();
+	    t--;
+	    }
+	}
+}

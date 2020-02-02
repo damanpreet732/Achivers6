@@ -51,7 +51,7 @@ class GFG {
 	        }
 	        System.out.println();
 	    }
-	    System.out.println();
+	    //System.out.println();
 	    t--;
 	    }
 	}

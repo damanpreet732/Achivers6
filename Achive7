@@ -1,0 +1,53 @@
+/*package whatever //do not write package name here */
+
+import java.io.*;
+import java.util.* ;
+class GFG {
+	public static void main (String[] args) {
+	    Scanner input = new Scanner (System.in);
+	    int t = input.nextInt();
+	    while(t!=0)
+	    {
+	        int n = input.nextInt();
+	        int arrival[] = new int [n] ;
+	        int depart[] = new int[n] ;
+	        for(int i=0;i<n;i++)
+	        {
+	            arrival[i] = input.nextInt();
+	        }
+	        for(int i=0;i<n;i++)
+	        {
+	            depart[i] = input.nextInt();
+	        }
+	        //just in case timeings are not given in sorted order
+	        /*for(int i=0;i<n;i++)
+	        {
+	            for(int j=i+1;j<n;j++)
+	            {
+	                if(arrival[i] > arrival[j])
+	                {
+	                    int temp = arrival[i] ;
+	                    arrival[i] = arrival[j] ;
+	                    arrival[j] = temp ;
+	                    temp = depart[i] ;
+	                    depart[i] = depart[j] ;
+	                    depart[j] = temp ;
+	                }
+	            }
+	        }*/
+	        int Platforms = 1 ;
+	        for(int i=0;i<n;i++)
+	        {
+	            int platformsneeded = 1;
+                for(int j=i+1 ; j<n;j++)
+                {
+                    if(depart[i] > arrival[j]) platformsneeded++ ;
+                }
+                //System.out.println(platformsneeded);
+                Platforms = Math.max(Platforms,platformsneeded);
+	        }
+	        System.out.println("Platforms Needed : "+Platforms);
+	        t--;
+	    }
+	}
+}
